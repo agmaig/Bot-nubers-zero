@@ -502,6 +502,7 @@ def show_admin(cid, uid):
     mk.add(btn("🧪 تجربة إرسال كود","adm_test_code"))
     mk.add(btn("👥 قائمة المستخدمين","adm_users"),  btn("🗑 مسح السجل","adm_clear_history"))
     mk.add(btn("💰 إدارة الأرصدة","adm_balances"))
+    mk.add(btn("🔑 تغيير معلومات روكسي","adm_roxy_creds"))
     mk.add(back())
     smart_edit(cid, uid, text, mk)
 
@@ -1084,9 +1085,39 @@ def _handle(call, uid, cid, data):
             f"🎯 أكواد موزّعة: {tc}\n"
             f"🚫 أرقام محظورة: {bl}",show_alert=True)
 
-    elif data == "cancel_input":
-        with get_db() as c: c.execute("DELETE FROM pending_inputs WHERE user_id=?",(uid,))
-        show_home(cid,uid)
+    elif data == "adm_roxy_creds" and uid in ADMIN_IDS:
+        cur_user = gs("roxy_user") or ROXY_USER
+        smart_edit(cid, uid,
+            f"🔑 <b>معلومات روكسي الحالية</b>\n"
+            f"━━━━━━━━━━━━━━━━━━━━━\n"
+            f"👤 اليوزر:   <code>{cur_user}</code>\n"
+            f"🔒 الباسورد: <code>{'•' * 8}</code>\n"
+            f"━━━━━━━━━━━━━━━━━━━━━\n"
+            f"<i>اختر ما تريد تغييره:</i>",
+            types.InlineKeyboardMarkup(row_width=1).add(
+                btn("👤 تغيير اليوزر",    "adm_roxy_set_user"),
+                btn("🔒 تغيير الباسورد", "adm_roxy_set_pass"),
+                back("admin_panel")
+            )
+        )
+
+    elif data == "adm_roxy_set_user" and uid in ADMIN_IDS:
+        set_pending(uid, "roxy_new_user")
+        smart_edit(cid, uid,
+            f"👤 <b>تغيير يوزر روكسي</b>\n"
+            f"━━━━━━━━━━━━━━━━━━━━━\n"
+            f"أرسل اليوزر الجديد:",
+            types.InlineKeyboardMarkup().add(btn("❌ إلغاء", "cancel_input"))
+        )
+
+    elif data == "adm_roxy_set_pass" and uid in ADMIN_IDS:
+        set_pending(uid, "roxy_new_pass")
+        smart_edit(cid, uid,
+            f"🔒 <b>تغيير باسورد روكسي</b>\n"
+            f"━━━━━━━━━━━━━━━━━━━━━\n"
+            f"أرسل الباسورد الجديد:",
+            types.InlineKeyboardMarkup().add(btn("❌ إلغاء", "cancel_input"))
+        )
 
     elif data == "none":
         bot.answer_callback_query(call.id)
@@ -1234,6 +1265,36 @@ def handle_inputs(msg):
                 f"⏳ سيتم مراجعة طلبك خلال 24 ساعة")
             show_home(cid,uid)
 
+        elif action == "roxy_new_user" and msg.text and uid in ADMIN_IDS:
+            new_user = msg.text.strip()
+            ss("roxy_user", new_user)
+            global ROXY_USER, roxy_logged_in
+            ROXY_USER = new_user
+            roxy_logged_in = False
+            with get_db() as c:
+                c.execute("DELETE FROM pending_inputs WHERE user_id=?",(uid,))
+            bot.reply_to(msg,
+                f"✅ <b>تم تغيير اليوزر!</b>\n"
+                f"━━━━━━━━━━━━━━━━━━━━━\n"
+                f"👤 اليوزر الجديد: <code>{new_user}</code>\n"
+                f"<i>سيتم إعادة تسجيل الدخول تلقائياً.</i>")
+            show_admin(cid, uid)
+
+        elif action == "roxy_new_pass" and msg.text and uid in ADMIN_IDS:
+            new_pass = msg.text.strip()
+            ss("roxy_pass", new_pass)
+            global ROXY_PASS
+            ROXY_PASS = new_pass
+            roxy_logged_in = False
+            with get_db() as c:
+                c.execute("DELETE FROM pending_inputs WHERE user_id=?",(uid,))
+            bot.reply_to(msg,
+                f"✅ <b>تم تغيير الباسورد!</b>\n"
+                f"━━━━━━━━━━━━━━━━━━━━━\n"
+                f"🔒 تم الحفظ بنجاح\n"
+                f"<i>سيتم إعادة تسجيل الدخول تلقائياً.</i>")
+            show_admin(cid, uid)
+
         elif action == "upload_combo" and msg.document:
             fi = bot.get_file(msg.document.file_id)
             content = bot.download_file(fi.file_path).decode('utf-8',errors='ignore')
@@ -1268,6 +1329,12 @@ if __name__ == "__main__":
     logger.info("🔧 تهيئة قاعدة البيانات...")
     init_db()
     logger.info("✅ قاعدة البيانات جاهزة")
+    # تحميل بيانات روكسي المحفوظة إن وجدت
+    saved_user = gs("roxy_user")
+    saved_pass = gs("roxy_pass")
+    if saved_user: ROXY_USER = saved_user
+    if saved_pass: ROXY_PASS = saved_pass
+    logger.info(f"🔑 بيانات روكسي: {ROXY_USER}")
     logger.info("🔗 تسجيل الدخول على روكسي...")
     ok = roxy_login()
     logger.info(f"{'✅ تم تسجيل الدخول' if ok else '⚠️ فشل تسجيل الدخول'}")
@@ -1275,4 +1342,3 @@ if __name__ == "__main__":
     threading.Thread(target=monitor_loop,daemon=True).start()
     logger.info("🤖 البوت يعمل الآن ✅")
     bot.infinity_polling(timeout=60,long_polling_timeout=60)
-()
