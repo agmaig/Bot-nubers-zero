@@ -31,14 +31,64 @@ ROXY_CDR     = ROXY_BASE + "/agent/res/data_smscdr.php"
 DB_NAME = "ultra_roxy.db"
 
 COUNTRY_MAP = {
-    "1":"🇺🇸","7":"🇷🇺","20":"🇪🇬","44":"🇬🇧","33":"🇫🇷","49":"🇩🇪",
-    "90":"🇹🇷","91":"🇮🇳","966":"🇸🇦","971":"🇦🇪","964":"🇮🇶","965":"🇰🇼",
-    "212":"🇲🇦","213":"🇩🇿","962":"🇯🇴","963":"🇸🇾","967":"🇾🇪","970":"🇵🇸",
-    "62":"🇮🇩","55":"🇧🇷","60":"🇲🇾","84":"🇻🇳","86":"🇨🇳","34":"🇪🇸",
-    "380":"🇺🇦","48":"🇵🇱","31":"🇳🇱","39":"🇮🇹","63":"🇵🇭","66":"🇹🇭",
-    "880":"🇧🇩","27":"🇿🇦","234":"🇳🇬","216":"🇹🇳","218":"🇱🇾","249":"🇸🇩",
-    "961":"🇱🇧","968":"🇴🇲","973":"🇧🇭","974":"🇶🇦","81":"🇯🇵","82":"🇰🇷",
-    "65":"🇸🇬","61":"🇦🇺","52":"🇲🇽","54":"🇦🇷","98":"🇮🇷","92":"🇵🇰",
+    # عربي
+    "966":"🇸🇦 السعودية","971":"🇦🇪 الإمارات","964":"🇮🇶 العراق","965":"🇰🇼 الكويت",
+    "962":"🇯🇴 الأردن","963":"🇸🇾 سوريا","967":"🇾🇪 اليمن","970":"🇵🇸 فلسطين",
+    "961":"🇱🇧 لبنان","968":"🇴🇲 عُمان","973":"🇧🇭 البحرين","974":"🇶🇦 قطر",
+    "20":"🇪🇬 مصر","212":"🇲🇦 المغرب","213":"🇩🇿 الجزائر","216":"🇹🇳 تونس",
+    "218":"🇱🇾 ليبيا","249":"🇸🇩 السودان","252":"🇸🇴 الصومال","253":"🇩🇯 جيبوتي",
+    "222":"🇲🇷 موريتانيا","269":"🇰🇲 جزر القمر",
+    # آسيا
+    "91":"🇮🇳 الهند","86":"🇨🇳 الصين","81":"🇯🇵 اليابان","82":"🇰🇷 كوريا الجنوبية",
+    "62":"🇮🇩 إندونيسيا","60":"🇲🇾 ماليزيا","63":"🇵🇭 الفلبين","66":"🇹🇭 تايلاند",
+    "84":"🇻🇳 فيتنام","65":"🇸🇬 سنغافورة","92":"🇵🇰 باكستان","880":"🇧🇩 بنغلاديش",
+    "98":"🇮🇷 إيران","90":"🇹🇷 تركيا","7":"🇷🇺 روسيا","77":"🇰🇿 كازاخستان",
+    "994":"🇦🇿 أذربيجان","995":"🇬🇪 جورجيا","374":"🇦🇲 أرمينيا","993":"🇹🇲 تركمانستان",
+    "996":"🇰🇬 قيرغيزستان","992":"🇹🇯 طاجيكستان","998":"🇺🇿 أوزبكستان",
+    "95":"🇲🇲 ميانمار","855":"🇰🇭 كمبوديا","856":"🇱🇦 لاوس","977":"🇳🇵 نيبال",
+    "94":"🇱🇰 سريلانكا","960":"🇲🇻 المالديف","975":"🇧🇹 بوتان","976":"🇲🇳 منغوليا",
+    "850":"🇰🇵 كوريا الشمالية","886":"🇹🇼 تايوان","852":"🇭🇰 هونغ كونغ",
+    "853":"🇲🇴 ماكاو","670":"🇹🇱 تيمور الشرقية","673":"🇧🇳 بروناي",
+    # أوروبا
+    "44":"🇬🇧 بريطانيا","33":"🇫🇷 فرنسا","49":"🇩🇪 ألمانيا","34":"🇪🇸 إسبانيا",
+    "39":"🇮🇹 إيطاليا","31":"🇳🇱 هولندا","32":"🇧🇪 بلجيكا","41":"🇨🇭 سويسرا",
+    "43":"🇦🇹 النمسا","46":"🇸🇪 السويد","47":"🇳🇴 النرويج","45":"🇩🇰 الدنمارك",
+    "358":"🇫🇮 فنلندا","48":"🇵🇱 بولندا","380":"🇺🇦 أوكرانيا","375":"🇧🇾 بيلاروسيا",
+    "40":"🇷🇴 رومانيا","36":"🇭🇺 المجر","420":"🇨🇿 التشيك","421":"🇸🇰 سلوفاكيا",
+    "385":"🇭🇷 كرواتيا","381":"🇷🇸 صربيا","387":"🇧🇦 البوسنة","389":"🇲🇰 مقدونيا",
+    "359":"🇧🇬 بلغاريا","30":"🇬🇷 اليونان","90":"🇹🇷 تركيا","351":"🇵🇹 البرتغال",
+    "353":"🇮🇪 أيرلندا","354":"🇮🇸 آيسلندا","370":"🇱🇹 ليتوانيا","371":"🇱🇻 لاتفيا",
+    "372":"🇪🇪 إستونيا","373":"🇲🇩 مولدوفا","352":"🇱🇺 لكسمبورغ","356":"🇲🇹 مالطا",
+    "357":"🇨🇾 قبرص","355":"🇦🇱 ألبانيا","382":"🇲🇪 الجبل الأسود","386":"🇸🇮 سلوفينيا",
+    "423":"🇱🇮 ليختنشتاين","376":"🇦🇩 أندورا","378":"🇸🇲 سان مارينو","377":"🇲🇨 موناكو",
+    "298":"🇫🇴 جزر فارو","350":"🇬🇮 جبل طارق",
+    # أمريكا
+    "1":"🇺🇸 أمريكا","55":"🇧🇷 البرازيل","52":"🇲🇽 المكسيك","54":"🇦🇷 الأرجنتين",
+    "57":"🇨🇴 كولومبيا","56":"🇨🇱 تشيلي","51":"🇵🇪 بيرو","58":"🇻🇪 فنزويلا",
+    "593":"🇪🇨 الإكوادور","591":"🇧🇴 بوليفيا","595":"🇵🇾 باراغواي","598":"🇺🇾 أوروغواي",
+    "592":"🇬🇾 غيانا","597":"🇸🇷 سورينام","53":"🇨🇺 كوبا","1809":"🇩🇴 الدومينيكان",
+    "502":"🇬🇹 غواتيمالا","503":"🇸🇻 السلفادور","504":"🇭🇳 هندوراس","505":"🇳🇮 نيكاراغوا",
+    "506":"🇨🇷 كوستاريكا","507":"🇵🇦 بنما","501":"🇧🇿 بليز","1868":"🇹🇹 ترينيداد",
+    "1876":"🇯🇲 جامايكا","1246":"🇧🇧 بربادوس","1784":"🇻🇨 سانت فنسنت",
+    # أفريقيا
+    "27":"🇿🇦 جنوب أفريقيا","234":"🇳🇬 نيجيريا","254":"🇰🇪 كينيا","233":"🇬🇭 غانا",
+    "255":"🇹🇿 تنزانيا","256":"🇺🇬 أوغندا","251":"🇪🇹 إثيوبيا","237":"🇨🇲 الكاميرون",
+    "243":"🇨🇩 الكونغو","225":"🇨🇮 ساحل العاج","221":"🇸🇳 السنغال","260":"🇿🇲 زامبيا",
+    "263":"🇿🇼 زيمبابوي","258":"🇲🇿 موزمبيق","261":"🇲🇬 مدغشقر","265":"🇲🇼 مالاوي",
+    "266":"🇱🇸 ليسوتو","267":"🇧🇼 بتسوانا","268":"🇸🇿 إسواتيني","250":"🇷🇼 رواندا",
+    "257":"🇧🇮 بوروندي","241":"🇬🇦 الغابون","240":"🇬🇶 غينيا الاستوائية",
+    "236":"🇨🇫 أفريقيا الوسطى","235":"🇹🇩 تشاد","242":"🇨🇬 الكونغو برازافيل",
+    "244":"🇦🇴 أنغولا","245":"🇬🇼 غينيا بيساو","220":"🇬🇲 غامبيا","224":"🇬🇳 غينيا",
+    "226":"🇧🇫 بوركينا فاسو","227":"🇳🇪 النيجر","228":"🇹🇬 توغو","229":"🇧🇯 بنين",
+    "230":"🇲🇺 موريشيوس","231":"🇱🇷 ليبيريا","232":"🇸🇱 سيراليون",
+    "238":"🇨🇻 الرأس الأخضر","239":"🇸🇹 ساو تومي","246":"🇮🇴 دييغو غارسيا",
+    "247":"🇸🇭 أسينشن","248":"🇸🇨 سيشل","259":"🇹🇿 زنجبار",
+    # أوقيانوسيا
+    "61":"🇦🇺 أستراليا","64":"🇳🇿 نيوزيلندا","679":"🇫🇯 فيجي","675":"🇵🇬 بابوا غينيا الجديدة",
+    "677":"🇸🇧 جزر سليمان","678":"🇻🇺 فانواتو","676":"🇹🇴 تونغا","685":"🇼🇸 ساموا",
+    "686":"🇰🇮 كيريباتي","687":"🇳🇨 كاليدونيا الجديدة","688":"🇹🇻 توفالو",
+    "689":"🇵🇫 بولينيزيا الفرنسية","690":"🇹🇰 توكيلاو","691":"🇫🇲 ميكرونيزيا",
+    "692":"🇲🇭 جزر مارشال","680":"🇵🇼 بالاو","681":"🇼🇫 واليس وفوتونا",
 }
 
 # ═══════════════════════════════════════════
@@ -167,7 +217,8 @@ def extract_code(text):
 
 def get_flag(phone):
     for k in sorted(COUNTRY_MAP.keys(), key=len, reverse=True):
-        if phone.startswith(k): return COUNTRY_MAP[k]
+        if phone.startswith(k):
+            return COUNTRY_MAP[k].split()[0]  # فقط الإيموجي
     return "🌍"
 
 def send_chunks(cid, header, lines, max_len=4000):
@@ -203,7 +254,15 @@ def check_sub(cid, uid):
         channel_url = "https://t.me/" + CHANNEL_USERNAME.lstrip("@")
         mk.add(types.InlineKeyboardButton("📢 اشترك في القناة", url=channel_url))
         mk.add(btn("✅ تحققت من الاشتراك", "check_sub"))
-        sub_text = "⚠️ <b>يجب الاشتراك في القناة!</b>\n\n📢 " + CHANNEL_USERNAME + "\n\nاشترك ثم اضغط الزر بالأسفل"
+        sub_text = (
+            "🔒 <b>يجب الاشتراك أولاً!</b>\n"
+            "━━━━━━━━━━━━━━━━━━━━━\n\n"
+            "للاستمرار في استخدام البوت\n"
+            "يرجى الاشتراك في قناتنا:\n\n"
+            f"📢 <b>{CHANNEL_USERNAME}</b>\n\n"
+            "━━━━━━━━━━━━━━━━━━━━━\n"
+            "بعد الاشتراك اضغط ✅ <b>تحققت</b>"
+        )
         try:
             bot.send_message(cid, sub_text, reply_markup=mk)
         except:
@@ -273,14 +332,24 @@ def monitor_loop():
                     uid,raw_phone,cid,mid,svc = sess_map[phone]
                     code = extract_code(text)
                     flag = get_flag(phone)
-                    code_line = f"🔐 <b>الكود:</b> <code>{code}</code>\n" if code else "⚠️ <b>لم يُعثر على كود رقمي</b>\n"
+                    if code:
+                        code_block = (
+                            f"🔐  <b>الكود:</b>\n"
+                            f"┌─────────────────────\n"
+                            f"│  <code>{code}</code>\n"
+                            f"└─────────────────────\n"
+                        )
+                    else:
+                        code_block = "⚠️  <b>لم يُعثر على كود رقمي</b>\n"
                     msg_text = (
-                        f"╔══════════════════╗\n║  🎉 وصلت رسالة!  ║\n╚══════════════════╝\n\n"
-                        f"{code_line}"
-                        f"📱 <b>الرقم:</b> <code>+{raw_phone}</code>\n"
-                        f"🌍 <b>الدولة:</b> {flag}\n"
-                        f"⚙️ <b>الخدمة:</b> {svc}\n"
-                        f"💬 <b>الرسالة:</b>\n<i>{text}</i>"
+                        f"╔═══════════════════════╗\n"
+                        f"║   🎉  <b>وصل الكود!</b>   ║\n"
+                        f"╚═══════════════════════╝\n\n"
+                        f"{code_block}\n"
+                        f"📱  <code>+{raw_phone}</code>\n"
+                        f"🌍  {flag}  |  ⚙️  <b>{svc}</b>\n\n"
+                        f"━━━━━━━━━━━━━━━━━━━━━\n"
+                        f"💬  <i>{text}</i>"
                     )
                     mk2 = types.InlineKeyboardMarkup()
                     if code: mk2.add(btn(f"📋 نسخ الكود: {code}","none"))
@@ -295,17 +364,18 @@ def monitor_loop():
                     try:
                         masked = raw_phone[:5] + "*" * (len(raw_phone)-5)
                         mk_log = types.InlineKeyboardMarkup()
-                        mk_log.add(types.InlineKeyboardButton("🤖 احصل على كودك", url="https://t.me/ZERO_OTP1_BOT"))
+                        mk_log.add(types.InlineKeyboardButton("🤖 احصل على كودك الآن", url="https://t.me/ZERO_OTP1_BOT"))
                         bot.send_message(LOG_CHANNEL_ID,
-                            f"🔥 <b>كود جديد!</b>\n"
-                            f"┌──────────────────\n"
-                            f"│ 🛠 <b>الخدمة:</b> {svc}\n"
-                            f"│ 🌍 <b>الدولة:</b> {flag}\n"
-                            f"│ 📱 <b>الرقم:</b> <code>+{masked}</code>\n"
-                            f"│ 🔐 <b>الكود:</b> <code>{code}</code>\n"
-                            f"│ 💬 <b>الرسالة:</b> {text}\n"
-                            f"└──────────────────\n"
-                            f"#كود_جديد #{svc}",
+                            f"━━━━━━━━━━━━━━━━━━━━━\n"
+                            f"🔥  <b>كود OTP جديد!</b>\n"
+                            f"━━━━━━━━━━━━━━━━━━━━━\n\n"
+                            f"🔐  <b>الكود:</b>\n"
+                            f"<code>{code}</code>\n\n"
+                            f"⚙️  <b>{svc}</b>  |  {flag}\n"
+                            f"📱  <code>+{masked}</code>\n\n"
+                            f"💬  <i>{text}</i>\n"
+                            f"━━━━━━━━━━━━━━━━━━━━━\n"
+                            f"#OTP #كود_جديد #{svc}",
                             reply_markup=mk_log)
                     except: pass
                     c.execute("UPDATE users SET total_codes=total_codes+1, balance=balance+0.001 WHERE user_id=?",(uid,))
@@ -387,15 +457,18 @@ def show_home(cid, uid):
     my_codes   = u_row[0] if u_row else 0
     my_balance = round(u_row[1], 3) if u_row else 0.0
     text = (
-        f"👋 <b>أهلاً {name}!</b>\n\n"
-        f"┌─────────────────────┐\n"
-        f"│   🚀 بوت أرقام روكسي  │\n"
-        f"└─────────────────────┘\n\n"
-        f"⚡ تفعيل فوري لكافة التطبيقات\n"
-        f"🌍 أرقام من جميع دول العالم\n"
-        f"📨 استلام الكود تلقائياً\n\n"
-        f"👥 <b>المستخدمون:</b> {total_users}  |  ⏳ <b>نشطون:</b> {active_sess}\n"
-        f"🎯 <b>أكوادك:</b> {my_codes}  |  💰 <b>رصيدك:</b> ${my_balance}"
+        f"✨ <b>أهلاً وسهلاً، {name}!</b>\n"
+        f"━━━━━━━━━━━━━━━━━━━━━\n"
+        f"🌐 <b>ZERO OTP</b> — بوت الأرقام الافتراضية\n"
+        f"━━━━━━━━━━━━━━━━━━━━━\n\n"
+        f"⚡️ تفعيل فوري لجميع التطبيقات\n"
+        f"🌍 أرقام من أكثر من 50 دولة\n"
+        f"🤖 استلام الأكواد بشكل تلقائي\n"
+        f"🔒 خدمة آمنة وموثوقة\n\n"
+        f"━━━━━━━━━━━━━━━━━━━━━\n"
+        f"👥 المستخدمون: <b>{total_users}</b>  •  🟢 نشطون: <b>{active_sess}</b>\n"
+        f"🎯 أكوادك: <b>{my_codes}</b>  •  💰 رصيدك: <b>${my_balance}</b>\n"
+        f"━━━━━━━━━━━━━━━━━━━━━"
     )
     mk = types.InlineKeyboardMarkup(row_width=2)
     mk.add(btn("📱 شراء رقم","get_number"), btn("👤 حسابي","profile"))
@@ -410,11 +483,13 @@ def show_admin(cid, uid):
         s = c.execute("SELECT COUNT(*) FROM sessions").fetchone()[0]
         h = c.execute("SELECT COUNT(*) FROM history").fetchone()[0]
     text = (
-        f"🛠 <b>لوحة التحكم</b>\n\n"
-        f"👥 المستخدمون: <b>{u}</b>\n"
-        f"⏳ جلسات نشطة: <b>{s}</b>\n"
-        f"📨 رسائل معالجة: <b>{h}</b>\n"
-        f"🕐 {datetime.now().strftime('%H:%M — %d/%m/%Y')}"
+        f"🛡️ <b>لوحة تحكم الأدمن</b>\n"
+        f"━━━━━━━━━━━━━━━━━━━━━\n"
+        f"👥 المستخدمون:     <b>{u}</b>\n"
+        f"⏳ جلسات نشطة:   <b>{s}</b>\n"
+        f"📨 رسائل معالجة:  <b>{h}</b>\n"
+        f"━━━━━━━━━━━━━━━━━━━━━\n"
+        f"🕐 <i>{datetime.now().strftime('%H:%M  —  %d/%m/%Y')}</i>"
     )
     mk = types.InlineKeyboardMarkup(row_width=2)
     mk.add(btn("➕ إضافة تطبيق","add_app"),       btn("🗑 حذف تطبيق","adm_apps"))
@@ -467,17 +542,19 @@ def _handle(call, uid, cid, data):
 
     elif data == "help":
         text = (
-            "ℹ️ <b>كيفية الاستخدام</b>\n\n"
-            "1️⃣ اضغط 📱 <b>شراء رقم</b>\n"
-            "2️⃣ اختر التطبيق المطلوب\n"
-            "3️⃣ اختر الدولة\n"
-            "4️⃣ استخدم الرقم في التطبيق\n"
-            "5️⃣ الكود يصلك <b>تلقائياً</b> 🎉\n\n"
-            "⚠️ <b>ملاحظات:</b>\n"
-            "• إذا تأخر الكود اضغط 📩 <b>طلب يدوي</b>\n"
-            "• كل رقم صالح لاستخدام واحد فقط\n"
-            "• تواصل مع الدعم عند أي مشكلة\n\n"
-            
+            "📖 <b>دليل الاستخدام</b>\n"
+            "━━━━━━━━━━━━━━━━━━━━━\n\n"
+            "1️⃣  اضغط <b>📱 شراء رقم</b>\n"
+            "2️⃣  اختر التطبيق المطلوب\n"
+            "3️⃣  اختر الدولة المناسبة\n"
+            "4️⃣  استخدم الرقم في التطبيق\n"
+            "5️⃣  يصلك الكود <b>تلقائياً</b> 🎉\n\n"
+            "━━━━━━━━━━━━━━━━━━━━━\n"
+            "⚠️ <b>تنبيهات مهمة:</b>\n\n"
+            "▪️ إذا تأخر الكود اضغط 📩 <b>طلب يدوي</b>\n"
+            "▪️ كل رقم صالح لاستخدام واحد فقط\n"
+            "▪️ تواصل مع الدعم عند أي مشكلة\n"
+            "━━━━━━━━━━━━━━━━━━━━━"
         )
         mk = types.InlineKeyboardMarkup(); mk.add(back())
         smart_edit(cid, uid, text, mk)
@@ -489,14 +566,14 @@ def _handle(call, uid, cid, data):
             s = c.execute("SELECT COUNT(*) FROM sessions").fetchone()[0]
             h = c.execute("SELECT COUNT(*) FROM history").fetchone()[0]
         text = (
-            f"📊 <b>إحصائيات البوت</b>\n\n"
-            f"┌─────────────────────┐\n"
-            f"│ 👥 المستخدمون: {u}\n"
-            f"│ 📱 التطبيقات: {a}\n"
-            f"│ ⏳ جلسات نشطة: {s}\n"
-            f"│ 📨 رسائل معالجة: {h}\n"
-            f"└─────────────────────┘\n"
-            f"🕐 {datetime.now().strftime('%H:%M — %d/%m/%Y')}"
+            f"📊 <b>إحصائيات البوت</b>\n"
+            f"━━━━━━━━━━━━━━━━━━━━━\n"
+            f"👥 المستخدمون:     <b>{u}</b>\n"
+            f"📱 التطبيقات:      <b>{a}</b>\n"
+            f"⏳ جلسات نشطة:   <b>{s}</b>\n"
+            f"📨 رسائل معالجة:  <b>{h}</b>\n"
+            f"━━━━━━━━━━━━━━━━━━━━━\n"
+            f"🕐 <i>{datetime.now().strftime('%H:%M  —  %d/%m/%Y')}</i>"
         )
         mk = types.InlineKeyboardMarkup(); mk.add(back())
         smart_edit(cid, uid, text, mk)
@@ -514,14 +591,17 @@ def _handle(call, uid, cid, data):
             sl = f"\n\n🔄 <b>جلسة نشطة:</b>\n⚙️ {sess[1]} — <code>+{sess[0]}</code>\n⏱ منذ {elapsed//60} دقيقة"
         can_withdraw = my_balance >= 5.0
         text = (
-            f"👤 <b>ملفك الشخصي</b>\n\n"
-            f"🆔 المعرف: <code>{uid}</code>\n"
-            f"📅 الانضمام: {join}\n"
-            f"🎯 الأكواد المستلمة: <b>{my_codes}</b>\n"
-            f"💰 الرصيد: <b>${my_balance}</b>\n"
-            f"📊 كل كود = <b>$0.001</b>\n"
-            f"💵 أقل حد للسحب: <b>$5.00</b>\n"
-            + (f"✅ <b>رصيدك كافٍ للسحب!</b>" if can_withdraw else f"⏳ تحتاج <b>{round(5.0-my_balance,3)}$</b> إضافية للسحب")
+            f"👤 <b>ملفك الشخصي</b>\n"
+            f"━━━━━━━━━━━━━━━━━━━━━\n"
+            f"🆔 المعرف:          <code>{uid}</code>\n"
+            f"📅 تاريخ الانضمام:  <b>{join}</b>\n"
+            f"🎯 أكواد مستلمة:   <b>{my_codes}</b>\n"
+            f"━━━━━━━━━━━━━━━━━━━━━\n"
+            f"💰 رصيدك الحالي:   <b>${my_balance}</b>\n"
+            f"📈 كل كود =        <b>$0.001</b>\n"
+            f"💵 حد السحب:       <b>$5.00</b>\n"
+            f"━━━━━━━━━━━━━━━━━━━━━\n"
+            + (f"✅ <b>رصيدك جاهز للسحب!</b>" if can_withdraw else f"⏳ تحتاج <b>${round(5.0-my_balance,3)}</b> إضافية للسحب")
             + f"{sl}"
         )
         mk = types.InlineKeyboardMarkup()
@@ -545,10 +625,14 @@ def _handle(call, uid, cid, data):
             bot.answer_callback_query(call.id,f"❌ رصيدك ${balance} أقل من الحد الأدنى $5.00",show_alert=True)
             return
         smart_edit(cid,uid,
-            f"💸 <b>طلب سحب الرصيد</b>\n\n"
-            f"💰 رصيدك الحالي: <b>${balance}</b>\n\n"
-            f"أرسل رقم محفظتك أو معلومات الدفع\n"
-            f"(USDT TRC20 / PayPal / بنك محلي)",
+            f"💸 <b>طلب سحب الرصيد</b>\n"
+            f"━━━━━━━━━━━━━━━━━━━━━\n"
+            f"💰 رصيدك الحالي: <b>${balance}</b>\n"
+            f"━━━━━━━━━━━━━━━━━━━━━\n"
+            f"أرسل معلومات الدفع الخاصة بك:\n\n"
+            f"▪️ USDT TRC20\n"
+            f"▪️ PayPal\n"
+            f"▪️ بنك محلي",
             types.InlineKeyboardMarkup().add(btn("❌ إلغاء","cancel_input")))
         set_pending(uid,"withdraw_info")
 
@@ -558,7 +642,7 @@ def _handle(call, uid, cid, data):
         mk = types.InlineKeyboardMarkup(row_width=3)
         for a in apps: mk.add(btn(a[1],f"app_{a[1]}"))
         mk.add(back())
-        smart_edit(cid, uid, "📲 <b>اختر الخدمة:</b>", mk)
+        smart_edit(cid, uid, "📲 <b>اختر التطبيق المطلوب:</b>\n━━━━━━━━━━━━━━━━━━━━━", mk)
 
     elif data.startswith("app_"):
         app_name = data[4:]
@@ -572,7 +656,7 @@ def _handle(call, uid, cid, data):
             if count > 0:
                 mk.add(btn(f"{COUNTRY_MAP.get(code,code)} ({count})",f"buy_{app_name}_{code}"))
         mk.add(back("get_number"))
-        smart_edit(cid, uid, f"🌍 <b>اختر الدولة — {app_name}:</b>", mk)
+        smart_edit(cid, uid, f"🌍 <b>اختر الدولة</b>\n━━━━━━━━━━━━━━━━━━━━━\n⚙️ الخدمة: <b>{app_name}</b>", mk)
 
     elif data.startswith("buy_"):
         parts = data.split("_",2); app_name=parts[1]; code=parts[2]
@@ -582,14 +666,21 @@ def _handle(call, uid, cid, data):
             numbers = json.loads(row[0])
             if not numbers: bot.answer_callback_query(call.id,"نفذت الكمية",show_alert=True); return
             phone = random.choice(numbers)
-            flag  = COUNTRY_MAP.get(code,"🌍")
+            flag  = COUNTRY_MAP.get(code,"🌍").split()[0]
+            country_name = COUNTRY_MAP.get(code, f"🌍 {code}")
             text  = (
-                f"✅ <b>تم حجز الرقم!</b>\n\n"
-                f"📱 <b>الرقم:</b> <code>+{phone}</code>\n"
-                f"🌍 <b>الدولة:</b> {flag}\n"
-                f"⚙️ <b>الخدمة:</b> {app_name}\n\n"
-                f"┌─────────────────────┐\n│   ⏳ بانتظار الكود...  │\n└─────────────────────┘\n\n"
-                f"<i>سيصلك الكود تلقائياً 🔄</i>"
+                f"╔═══════════════════════╗\n"
+                f"║   📱  <b>تم حجز رقمك!</b>   ║\n"
+                f"╚═══════════════════════╝\n\n"
+                f"<b>الرقم</b>\n"
+                f"┌─────────────────────\n"
+                f"│  <code>+{phone}</code>\n"
+                f"└─────────────────────\n\n"
+                f"🌍  {country_name}\n"
+                f"⚙️  <b>{app_name}</b>\n\n"
+                f"━━━━━━━━━━━━━━━━━━━━━\n"
+                f"⏳  <b>في انتظار وصول الكود...</b>\n"
+                f"<i>الكود سيصلك تلقائياً، لا تغلق البوت 🔄</i>"
             )
             mk = types.InlineKeyboardMarkup()
             mk.add(btn("📩 طلب الكود يدوياً","check_code"))
@@ -614,10 +705,24 @@ def _handle(call, uid, cid, data):
             txt  = re.sub(r'<[^>]+>','',str(row[4])).strip()
             code = extract_code(txt)
             flag = get_flag(clean)
-            code_line = f"🔐 <b>الكود:</b> <code>{code}</code>\n" if code else "⚠️ <b>لم يُعثر على كود</b>\n"
+            if code:
+                code_block = (
+                    f"🔐  <b>الكود:</b>\n"
+                    f"┌─────────────────────\n"
+                    f"│  <code>{code}</code>\n"
+                    f"└─────────────────────\n"
+                )
+            else:
+                code_block = "⚠️  <b>لم يُعثر على كود</b>\n"
             final = (
-                f"╔══════════════════╗\n║  🎉 وصلت رسالة!  ║\n╚══════════════════╝\n\n"
-                f"{code_line}📱 <code>+{phone}</code>\n🌍 {flag}\n⚙️ {service}\n💬 <i>{txt}</i>"
+                f"╔═══════════════════════╗\n"
+                f"║   🎉  <b>وصل الكود!</b>   ║\n"
+                f"╚═══════════════════════╝\n\n"
+                f"{code_block}\n"
+                f"📱  <code>+{phone}</code>\n"
+                f"🌍  {flag}  |  ⚙️  <b>{service}</b>\n\n"
+                f"━━━━━━━━━━━━━━━━━━━━━\n"
+                f"💬  <i>{txt}</i>"
             )
             mk2 = types.InlineKeyboardMarkup()
             if code: mk2.add(btn(f"📋 نسخ: {code}","none"))
@@ -629,11 +734,18 @@ def _handle(call, uid, cid, data):
             try:
                 masked2 = phone[:5] + "*" * (len(phone)-5)
                 mk_log2 = types.InlineKeyboardMarkup()
-                mk_log2.add(types.InlineKeyboardButton("🤖 احصل على كودك", url="https://t.me/ZERO_OTP1_BOT"))
+                mk_log2.add(types.InlineKeyboardButton("🤖 احصل على كودك الآن", url="https://t.me/ZERO_OTP1_BOT"))
                 bot.send_message(LOG_CHANNEL_ID,
-                    f"🔥 <b>كود جديد!</b>\n┌──────────────────\n"
-                    f"│ 🛠 {service} | {flag}\n│ 📱 <code>+{masked2}</code>\n"
-                    f"│ 🔐 <code>{code}</code>\n│ 💬 {txt}\n└──────────────────\n#كود_جديد #{service}",
+                    f"━━━━━━━━━━━━━━━━━━━━━\n"
+                    f"🔥  <b>كود OTP جديد!</b>\n"
+                    f"━━━━━━━━━━━━━━━━━━━━━\n\n"
+                    f"🔐  <b>الكود:</b>\n"
+                    f"<code>{code}</code>\n\n"
+                    f"⚙️  <b>{service}</b>  |  {flag}\n"
+                    f"📱  <code>+{masked2}</code>\n\n"
+                    f"💬  <i>{txt}</i>\n"
+                    f"━━━━━━━━━━━━━━━━━━━━━\n"
+                    f"#OTP #كود_جديد #{service}",
                     reply_markup=mk_log2)
             except: pass
             with get_db() as c:
@@ -661,25 +773,174 @@ def _handle(call, uid, cid, data):
             mk_test = types.InlineKeyboardMarkup()
             mk_test.add(types.InlineKeyboardButton("🤖 احصل على كودك", url="https://t.me/ZERO_OTP1_BOT"))
             bot.send_message(LOG_CHANNEL_ID,
-                f"🔥 <b>كود جديد!</b>\n"
-                f"┌──────────────────\n"
-                f"│ 🛠 <b>الخدمة:</b> {svc}\n"
-                f"│ 🌍 <b>الدولة:</b> {flag}\n"
-                f"│ 📱 <b>الرقم:</b> <code>+{masked3}</code>\n"
-                f"│ 🔐 <b>الكود:</b> <code>{code}</code>\n"
-                f"│ 💬 <b>الرسالة:</b> Your {svc} code is {code}\n"
-                f"└──────────────────\n"
-                f"#كود_جديد #{svc} ⚠️ <i>هذه رسالة تجريبية</i>",
+                f"━━━━━━━━━━━━━━━━━━━━━\n"
+                f"🔥  <b>كود OTP جديد!</b>\n"
+                f"━━━━━━━━━━━━━━━━━━━━━\n\n"
+                f"🔐  <b>الكود:</b>\n"
+                f"<code>{code}</code>\n\n"
+                f"⚙️  <b>{svc}</b>  |  {flag}\n"
+                f"📱  <code>+{masked3}</code>\n\n"
+                f"💬  <i>Your {svc} code is {code}</i>\n"
+                f"━━━━━━━━━━━━━━━━━━━━━\n"
+                f"#OTP #كود_جديد #{svc}  ⚠️ <i>تجريبي</i>",
                 reply_markup=mk_test)
             bot.answer_callback_query(call.id,f"✅ تم إرسال كود تجريبي للقناة!\n🔐 الكود: {code}",show_alert=True)
         except Exception as e:
             bot.answer_callback_query(call.id,f"❌ فشل الإرسال: {e}",show_alert=True)
 
     elif data == "adm_roxy_numbers" and uid in ADMIN_IDS:
-        bot.answer_callback_query(call.id,"⏳ جاري جلب الأرقام...")
+        bot.answer_callback_query(call.id,"⏳ جاري جلب الأرقام من روكسي...")
         numbers = fetch_roxy_numbers()
-        if not numbers: bot.send_message(cid,"⚠️ لا توجد أرقام."); return
-        send_chunks(cid,f"📱 <b>أرقام روكسي ({len(numbers)}):</b>\n\n",[f"<code>{n}</code>" for n in numbers])
+        if not numbers:
+            bot.answer_callback_query(call.id,"⚠️ لا توجد أرقام في روكسي",show_alert=True)
+            return
+        # تقسيم الأرقام حسب الدولة — يشمل جميع الدول حتى غير الموجودة في COUNTRY_MAP
+        by_country = {}
+        for phone in numbers:
+            matched = "other"
+            for code in sorted(COUNTRY_MAP.keys(), key=len, reverse=True):
+                if phone.startswith(code):
+                    matched = code
+                    break
+            by_country.setdefault(matched, []).append(phone)
+        ss(f"roxy_countries_{uid}", json.dumps(by_country))
+        mk = types.InlineKeyboardMarkup(row_width=2)
+        for code, nums in sorted(by_country.items(), key=lambda x: -len(x[1])):
+            label = COUNTRY_MAP.get(code, f"🌍 {code}")
+            mk.add(btn(f"{label}  ({len(nums)})", f"rxc_{uid}_{code}"))
+        mk.add(back("admin_panel"))
+        smart_edit(cid, uid,
+            f"📱 <b>أرقام روكسي</b>\n"
+            f"━━━━━━━━━━━━━━━━━━━━━\n"
+            f"🔢 إجمالي الأرقام: <b>{len(numbers)}</b>\n"
+            f"🌍 عدد الدول: <b>{len(by_country)}</b>\n"
+            f"━━━━━━━━━━━━━━━━━━━━━\n"
+            f"<i>اختر دولة لإضافة أرقامها:</i>", mk)
+
+    elif data.startswith("rxc_") and uid in ADMIN_IDS:
+        # rxc_{uid}_{code}
+        parts = data.split("_", 2)
+        code = parts[2]
+        raw = gs(f"roxy_countries_{uid}")
+        if not raw:
+            bot.answer_callback_query(call.id,"❌ انتهت الجلسة، أعد فتح أرقام روكسي",show_alert=True)
+            return
+        by_country = json.loads(raw)
+        nums = by_country.get(code, [])
+        label = COUNTRY_MAP.get(code, f"🌍 {code}")
+        flag = label.split()[0]
+        preview = "\n".join([f"<code>+{n}</code>" for n in nums[:8]])
+        if len(nums) > 8:
+            preview += f"\n<i>... و {len(nums)-8} رقم آخر</i>"
+        mk = types.InlineKeyboardMarkup(row_width=1)
+        mk.add(btn(f"➕ إضافة أرقام هذه الدولة", f"rxadd_{uid}_{code}"))
+        mk.add(btn("🔙 رجوع للدول", "adm_roxy_numbers"))
+        smart_edit(cid, uid,
+            f"{flag} <b>{label}</b>\n"
+            f"━━━━━━━━━━━━━━━━━━━━━\n"
+            f"📦 متاح في روكسي: <b>{len(nums)}</b> رقم\n"
+            f"━━━━━━━━━━━━━━━━━━━━━\n"
+            f"{preview}", mk)
+
+    elif data.startswith("rxadd_") and uid in ADMIN_IDS:
+        # rxadd_{uid}_{code}
+        parts = data.split("_", 2)
+        code = parts[2]
+        raw = gs(f"roxy_countries_{uid}")
+        if not raw:
+            bot.answer_callback_query(call.id,"❌ انتهت الجلسة",show_alert=True)
+            return
+        label = COUNTRY_MAP.get(code, f"🌍 {code}")
+        by_country = json.loads(raw)
+        total = len(by_country.get(code, []))
+        with get_db() as c:
+            apps = c.execute("SELECT id,name FROM apps").fetchall()
+        mk = types.InlineKeyboardMarkup(row_width=2)
+        for a in apps:
+            mk.add(btn(f"📱 {a[1]}", f"rxapp_{uid}_{code}_{a[1]}"))
+        mk.add(btn("🔙 رجوع", f"rxc_{uid}_{code}"))
+        smart_edit(cid, uid,
+            f"📱 <b>اختر التطبيق</b>\n"
+            f"━━━━━━━━━━━━━━━━━━━━━\n"
+            f"🌍 الدولة: <b>{label}</b>\n"
+            f"📦 متاح:  <b>{total}</b> رقم\n"
+            f"━━━━━━━━━━━━━━━━━━━━━\n"
+            f"<i>اختر التطبيق لإضافة الأرقام إليه:</i>", mk)
+
+    elif data.startswith("rxapp_") and uid in ADMIN_IDS:
+        # rxapp_{uid}_{code}_{appname}
+        parts = data.split("_", 3)
+        code = parts[2]
+        app_name = parts[3]
+        raw = gs(f"roxy_countries_{uid}")
+        if not raw:
+            bot.answer_callback_query(call.id,"❌ انتهت الجلسة",show_alert=True)
+            return
+        by_country = json.loads(raw)
+        total = len(by_country.get(code, []))
+        label = COUNTRY_MAP.get(code, f"🌍 {code}")
+        flag = label.split()[0]
+        # تحقق هل في أرقام قديمة
+        with get_db() as c:
+            ex = c.execute("SELECT numbers FROM combos WHERE service=? AND country_code=?",
+                           (app_name.upper(), code)).fetchone()
+        existing_count = len(json.loads(ex[0])) if ex else 0
+        # حفظ السياق
+        ss(f"rxctx_{uid}", json.dumps({"code": code, "app": app_name}))
+        set_pending(uid, "roxy_count_input", f"{code}|{app_name}|{existing_count}")
+        mk = types.InlineKeyboardMarkup()
+        mk.add(btn("❌ إلغاء", "cancel_input"))
+        old_info = (f"\n⚠️ يوجد <b>{existing_count}</b> رقم قديم لهذه الدولة في {app_name}\n"
+                    f"عند الإضافة ستُسأل عن الدمج أو الاستبدال.") if existing_count > 0 else ""
+        smart_edit(cid, uid,
+            f"🔢 <b>كم رقماً تريد إضافتها؟</b>\n"
+            f"━━━━━━━━━━━━━━━━━━━━━\n"
+            f"📱 التطبيق: <b>{app_name}</b>\n"
+            f"🌍 الدولة:  {flag} <b>{label}</b>\n"
+            f"📦 متاح:   <b>{total}</b> رقم\n"
+            f"{old_info}\n"
+            f"━━━━━━━━━━━━━━━━━━━━━\n"
+            f"<i>أرسل العدد المطلوب (أو أرسل</i> <code>all</code> <i>للكل):</i>", mk)
+
+    elif data.startswith("rxmerge_") and uid in ADMIN_IDS:
+        # rxmerge_{merge|replace}_{uid}_{code}_{appname}_{count}
+        parts = data.split("_", 5)
+        merge_mode = parts[1]   # "merge" أو "replace"
+        code       = parts[3]
+        app_name   = parts[4]
+        count      = int(parts[5])
+        raw = gs(f"roxy_countries_{uid}")
+        if not raw:
+            bot.answer_callback_query(call.id,"❌ انتهت الجلسة",show_alert=True)
+            return
+        by_country = json.loads(raw)
+        nums = by_country.get(code, [])[:count]
+        label = COUNTRY_MAP.get(code, f"🌍 {code}")
+        flag = label.split()[0]
+        with get_db() as c:
+            ex = c.execute("SELECT numbers FROM combos WHERE service=? AND country_code=?",
+                           (app_name.upper(), code)).fetchone()
+            existing = json.loads(ex[0]) if ex else []
+            if merge_mode == "merge":
+                final_nums = list(set(existing + nums))
+                mode_text = "دمج مع القديمة"
+            else:
+                final_nums = nums
+                mode_text = "استبدال القديمة"
+            c.execute("INSERT OR REPLACE INTO combos(service,country_code,numbers) VALUES(?,?,?)",
+                      (app_name.upper(), code, json.dumps(final_nums)))
+        added = len(final_nums) - len(existing) if merge_mode == "merge" else len(nums)
+        mk = types.InlineKeyboardMarkup(row_width=1)
+        mk.add(btn("🔙 رجوع للدول", "adm_roxy_numbers"))
+        mk.add(back("admin_panel"))
+        smart_edit(cid, uid,
+            f"✅ <b>تمت الإضافة بنجاح!</b>\n"
+            f"━━━━━━━━━━━━━━━━━━━━━\n"
+            f"📱 التطبيق:  <b>{app_name}</b>\n"
+            f"🌍 الدولة:   {flag} <b>{label}</b>\n"
+            f"⚙️ الوضع:    <b>{mode_text}</b>\n"
+            f"📦 المجموع:  <b>{len(final_nums)}</b> رقم\n"
+            f"━━━━━━━━━━━━━━━━━━━━━", mk)
 
     elif data == "adm_roxy_msgs" and uid in ADMIN_IDS:
         bot.answer_callback_query(call.id,"⏳ جاري جلب الرسائل...")
@@ -814,10 +1075,14 @@ def _handle(call, uid, cid, data):
             bl = c.execute("SELECT COUNT(*) FROM blocked_numbers").fetchone()[0]
             tc = c.execute("SELECT SUM(total_codes) FROM users").fetchone()[0] or 0
         bot.answer_callback_query(call.id,
-            f"📊 إحصائيات\n\n"
-            f"👥 المستخدمون: {u}\n📱 التطبيقات: {a}\n"
-            f"⏳ جلسات: {s}\n📨 رسائل: {h}\n"
-            f"🎯 أكواد موزّعة: {tc}\n🚫 أرقام محظورة: {bl}",show_alert=True)
+            f"📊 إحصائيات البوت\n"
+            f"━━━━━━━━━━━━━━━━\n"
+            f"👥 المستخدمون: {u}\n"
+            f"📱 التطبيقات: {a}\n"
+            f"⏳ جلسات نشطة: {s}\n"
+            f"📨 رسائل معالجة: {h}\n"
+            f"🎯 أكواد موزّعة: {tc}\n"
+            f"🚫 أرقام محظورة: {bl}",show_alert=True)
 
     elif data == "cancel_input":
         with get_db() as c: c.execute("DELETE FROM pending_inputs WHERE user_id=?",(uid,))
@@ -892,7 +1157,65 @@ def handle_inputs(msg):
             bot.reply_to(msg,f"🚫 تم حظر الرقم <code>{num}</code>")
             show_home(cid,uid)
 
-        elif action == "withdraw_info" and msg.text:
+        elif action == "roxy_count_input" and msg.text and uid in ADMIN_IDS:
+            # pdata = "code|app_name|existing_count"
+            parts = pdata.split("|", 2)
+            code = parts[0]; app_name = parts[1]; existing_count = int(parts[2])
+            raw = gs(f"roxy_countries_{uid}")
+            if not raw:
+                bot.reply_to(msg,"❌ انتهت الجلسة، أعد فتح أرقام روكسي"); return
+            by_country = json.loads(raw)
+            available = by_country.get(code, [])
+            total_available = len(available)
+            label = COUNTRY_MAP.get(code, f"🌍 {code}")
+            flag = label.split()[0]
+            # تحديد العدد
+            txt = msg.text.strip().lower()
+            if txt == "all":
+                count = total_available
+            else:
+                try:
+                    count = int(txt)
+                except:
+                    bot.reply_to(msg,"❌ أرسل رقماً صحيحاً أو كلمة <code>all</code>"); return
+            if count <= 0:
+                bot.reply_to(msg,"❌ العدد يجب أن يكون أكبر من صفر"); return
+            count = min(count, total_available)
+            with get_db() as c:
+                c.execute("DELETE FROM pending_inputs WHERE user_id=?",(uid,))
+            # لو في أرقام قديمة: اعرض خيار الدمج أو الاستبدال
+            if existing_count > 0:
+                mk = types.InlineKeyboardMarkup(row_width=1)
+                mk.add(btn(f"🔀 دمج مع الأرقام القديمة ({existing_count})",
+                           f"rxmerge_merge_{uid}_{code}_{app_name}_{count}"))
+                mk.add(btn(f"🗑 استبدال الأرقام القديمة بـ {count} رقم جديد",
+                           f"rxmerge_replace_{uid}_{code}_{app_name}_{count}"))
+                mk.add(btn("❌ إلغاء", "adm_roxy_numbers"))
+                bot.send_message(cid,
+                    f"⚠️ <b>يوجد أرقام قديمة!</b>\n"
+                    f"━━━━━━━━━━━━━━━━━━━━━\n"
+                    f"📱 التطبيق:     <b>{app_name}</b>\n"
+                    f"🌍 الدولة:      {flag} <b>{label}</b>\n"
+                    f"📦 قديمة:       <b>{existing_count}</b> رقم\n"
+                    f"➕ ستضاف:      <b>{count}</b> رقم\n"
+                    f"━━━━━━━━━━━━━━━━━━━━━\n"
+                    f"<i>اختر الطريقة:</i>", reply_markup=mk)
+            else:
+                # لا توجد أرقام قديمة — أضف مباشرة
+                nums = available[:count]
+                with get_db() as c:
+                    c.execute("INSERT OR REPLACE INTO combos(service,country_code,numbers) VALUES(?,?,?)",
+                              (app_name.upper(), code, json.dumps(nums)))
+                mk = types.InlineKeyboardMarkup(row_width=1)
+                mk.add(btn("🔙 رجوع للدول", "adm_roxy_numbers"))
+                mk.add(back("admin_panel"))
+                bot.send_message(cid,
+                    f"✅ <b>تمت الإضافة بنجاح!</b>\n"
+                    f"━━━━━━━━━━━━━━━━━━━━━\n"
+                    f"📱 التطبيق:  <b>{app_name}</b>\n"
+                    f"🌍 الدولة:   {flag} <b>{label}</b>\n"
+                    f"📦 المجموع:  <b>{len(nums)}</b> رقم\n"
+                    f"━━━━━━━━━━━━━━━━━━━━━", reply_markup=mk)
             with get_db() as c:
                 u = c.execute("SELECT balance FROM users WHERE user_id=?",(uid,)).fetchone()
                 balance = round(u[0],3) if u else 0
